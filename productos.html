@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos | Comida al Paso</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVBAR: parte q editará meli (index.html).
+       Cópialo TAL CUAL desde su versión final y solo cambia la
+       clase "active" al link de Productos. IMPORTANTE: debe
+       conservar el <span id="cart-count"> para que carrito.js
+       pueda actualizarlo.
+       ============================================================ -->
+  <header class="navbar">
+    <div class="container">
+      <span class="navbar__logo">Comida al Paso</span>
+      <ul class="navbar__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="productos.html" class="active">Productos</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <a href="carrito.html" class="navbar__cart">🛒 Carrito (<span id="cart-count">0</span>)</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Nuestros Productos</h1>
+    <p>Completos, papas fritas y bebidas recién preparados.</p>
+
+    <!-- productos.js inyecta aquí una tarjeta .card por cada producto -->
+    <section id="productos-container" class="grid">
+      <!-- Generado dinámicamente -->
+    </section>
+  </main>
+
+  <!-- ============================================================
+       FOOTER: también lo entrega Integrante 1, copiar su versión.
+       ============================================================ -->
+  <footer class="footer">
+    <p>&copy; 2026 Comida al Paso - Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="js/productos.js"></script>
+  <script src="js/carrito.js"></script>
+</body>
+</html>

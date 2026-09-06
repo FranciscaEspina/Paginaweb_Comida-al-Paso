@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalle de Producto | Comida al Paso</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- NAVBAR: copiar desde Integrante 1 (ver comentario en productos.html) -->
+  <header class="navbar">
+    <div class="container">
+      <span class="navbar__logo">Comida al Paso</span>
+      <ul class="navbar__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="productos.html" class="active">Productos</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <a href="carrito.html" class="navbar__cart">🛒 Carrito (<span id="cart-count">0</span>)</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <p><a href="productos.html">&larr; Volver a productos</a></p>
+
+    <!-- productos.js llena esto según el producto guardado en
+         localStorage con la clave "productoSeleccionadoId"
+         (se guarda al hacer clic en "Ver detalle" en productos.html) -->
+    <section id="detalle-container" style="display:flex; gap:2rem; flex-wrap:wrap;">
+      <!-- Generado dinámicamente -->
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Comida al Paso - Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="js/productos.js"></script>
+  <script src="js/carrito.js"></script>
+</body>
+</html>

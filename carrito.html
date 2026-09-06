@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Carrito | Comida al Paso</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- NAVBAR: copiar desde Integrante 1 -->
+  <header class="navbar">
+    <div class="container">
+      <span class="navbar__logo">Comida al Paso</span>
+      <ul class="navbar__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <a href="carrito.html" class="navbar__cart">🛒 Carrito (<span id="cart-count">0</span>)</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Mi carrito de compras</h1>
+
+    <div style="display:flex; gap:2rem; flex-wrap:wrap;">
+      <!-- carrito.js llena esto con un .cart-item por producto -->
+      <section id="carrito-items" style="flex:2; min-width:280px;">
+        <!-- Generado dinámicamente -->
+      </section>
+
+      <aside class="cart-summary" style="flex:1; min-width:220px; height:fit-content;">
+        <h2>Total: <span id="carrito-total">$0</span></h2>
+
+        <div class="form-group">
+          <label for="cupon">Cupón de descuento</label>
+          <input type="text" id="cupon" placeholder="Ingresa tu cupón">
+        </div>
+
+        <button id="btn-pagar" class="btn btn-primary" style="width:100%;">Pagar</button>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Comida al Paso - Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="js/productos.js"></script>
+  <script src="js/carrito.js"></script>
+</body>
+</html>
