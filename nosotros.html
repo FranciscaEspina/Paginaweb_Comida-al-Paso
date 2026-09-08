@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nosotros | Al Toque</title>
+<meta name="description" content="Conoce la historia de Al Toque y al equipo detrás del local.">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-bar">
+    <a href="index.html" class="logo"><img src="img/logo.png" width="70" height="70"></a>
+    <nav class="nav-links" aria-label="Navegación principal">
+      <a href="index.html">Home</a>
+      <a href="productos.html">Productos</a>
+      <a href="nosotros.html" aria-current="page">Nosotros</a>
+      <a href="blogs.html">Blogs</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="auth-links">
+        <a href="login.html">Iniciar sesión</a> ·
+        <a href="registro.html">Registrarse</a>
+      </div>
+      <a href="carrito.html" class="cart" aria-label="Ver carrito de compras">🛒 Carrito (<span id="cart-count">0</span>)</a>
+    </div>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h1>Nuestra historia</h1>
+          <p>De un carrito de barrio a una tienda online — sin perder la esencia de la comida al paso.</p>
+        </div>
+      </div>
+
+      <p>Al Toque nació de una idea simple: no todo el mundo tiene media hora para almorzar, pero eso no significa que deba comer mal. Empezamos como un carrito de completos en la esquina de un paradero, y con el tiempo sumamos churrascos, empanadas y papas rústicas hechas al momento.</p>
+      <p>Hoy seguimos con la misma lógica: pedidos simples, tiempos cortos y sabor de verdad. Esta tienda online es nuestra forma de acercar ese mismo local de siempre a quien prefiere pedir desde el celular y pasar solo a retirar.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>El equipo detrás de esto</h2>
+        </div>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <img src="img/meli.jpeg" alt="Foto Meli">
+          <p class="team-role">Melissa Vergara</p>
+        </div>
+
+        <div class="team-card">
+          <img src="img/Jean.PNG" alt="Foto Jean">
+          <p class="team-role">Jean Indey</p>
+        </div>
+
+        <div class="team-card">
+          <img src="img/panchi.PNG" alt="Foto Fran">
+          <p class="team-role">Francisca Espina</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <p class="logo">Al<span>Toque</span></p>
+        <p>Comida al paso, rápida y bien hecha, en el corazón del barrio.</p>
+      </div>
+      <div>
+        <h4>Categorías</h4>
+        <ul>
+          <li><a href="productos.html">Sándwiches</a></li>
+          <li><a href="productos.html">Completos</a></li>
+          <li><a href="productos.html">Bebidas</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Sitio</h4>
+        <ul>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Mantente al tanto</h4>
+        <p>Recibe promociones y novedades del local.</p>
+        <form class="newsletter-form" action="#" method="post">
+          <label for="newsletter-email" class="visually-hidden">Correo electrónico</label>
+          <input id="newsletter-email" type="email" placeholder="tu@correo.com" required>
+          <button type="submit" class="btn">Suscribirme</button>
+        </form>
+        <div class="payment-icons" aria-label="Medios de pago aceptados">
+          <span>Débito</span><span>Crédito</span><span>Efectivo</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Al Toque — Comida al paso.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/productos.js"></script>
+<script src="js/carrito.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
