@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Al Toque | Comida al paso</title>
+<meta name="description" content="Al Toque: sándwiches, completos y papas rústicas al paso, listos en minutos.">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-bar">
+    <a href="index.html" class="logo">
+      <img src="img/logo.png" width="70" height="70">
+    </a>
+
+    <nav class="nav-links" aria-label="Navegación principal">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="productos.html">Productos</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="blogs.html">Blogs</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+
+    <div class="nav-actions">
+      <div class="auth-links">
+        <a href="login.html">Iniciar sesión</a> ·
+        <a href="registro.html">Registrarse</a>
+      </div>
+      <a href="carrito.html" class="cart" aria-label="Ver carrito de compras">
+        🛒 Carrito (<span id="cart-count">0</span>)
+      </a>
+    </div>
+
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-copy">
+        <span class="hero-eyebrow">Listo en minutos</span>
+        <h1>Comida al paso, hecha al toque.</h1>
+        <p>Sándwiches, completos y papas rústicas preparados frente a ti. Pides, esperas poco y comes bien — así de simple.</p>
+        <div class="hero-actions">
+          <a href="productos.html" class="btn">Ver el menú</a>
+          <a href="nosotros.html" class="btn btn--ghost">Conócenos</a>
+        </div>
+      </div>
+
+      <div class="hero-art">
+        <img src="img/al-toque.jpg" alt="Nuestro local lleno de sazon" width="480" height="380">
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Destacados de hoy</h2>
+          <p>Lo que más se pide en el mesón, directo a tu bandeja.</p>
+        </div>
+        <a href="productos.html" class="btn btn--dark">Ver todo el menú</a>
+      </div>
+
+      <div class="product-grid">
+
+        <article class="product-card">
+          <img src="img/completo-italiano.PNG" alt="Completo italiano" width="200" height="150">
+          <p class="product-name">Completo italiano</p>
+          <div class="product-row">
+            <span class="product-price">$2.200</span>
+            <button class="add-btn" type="button" data-id="1">Añadir</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="img/churrasco-italiano.jpg" alt="Churrasco Al Toque" width="200" height="150">
+          <p class="product-name">Churrasco Al Toque</p>
+          <div class="product-row">
+            <span class="product-price">$3.500</span>
+            <button class="add-btn" type="button" data-id="2">Añadir</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="img/papas-rusticas.PNG" alt="Papas rústicas" width="200" height="150">
+          <p class="product-name">Papas rústicas</p>
+          <div class="product-row">
+            <span class="product-price">$2.800</span>
+            <button class="add-btn" type="button" data-id="3">Añadir</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <img src="img/empanadas-de-pino.jpg" alt="Empanada de pino" width="200" height="150">
+          <p class="product-name">Empanada de pino</p>
+          <div class="product-row">
+            <span class="product-price">$1.900</span>
+            <button class="add-btn" type="button" data-id="4">Añadir</button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div class="container">
+      <h3>¿Con hambre urgente?</h3>
+      <p>Pide en el local o retira para llevar — sin filas eternas.</p>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <p class="logo">Al<span>Toque</span></p>
+        <p>Comida al paso, rápida y bien hecha, en el corazón del barrio.</p>
+      </div>
+      <div>
+        <h4>Categorías</h4>
+        <ul>
+          <li><a href="productos.html">Sándwiches</a></li>
+          <li><a href="productos.html">Completos</a></li>
+          <li><a href="productos.html">Bebidas</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Sitio</h4>
+        <ul>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Mantente al tanto</h4>
+        <p>Recibe promociones y novedades del local.</p>
+        <form class="newsletter-form" action="#" method="post">
+          <label for="newsletter-email" class="visually-hidden">Correo electrónico</label>
+          <input id="newsletter-email" type="email" placeholder="tu@correo.com" required>
+          <button type="submit" class="btn">Suscribirme</button>
+        </form>
+        <div class="payment-icons" aria-label="Medios de pago aceptados">
+          <span>Débito</span><span>Crédito</span><span>Efectivo</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Al Toque — Comida al paso.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/productos.js"></script>
+<script src="js/carrito.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
