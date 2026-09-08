@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo Usuario | Administrador</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+<div class="admin-layout">
+    <aside class="admin-sidebar">
+        <h2>Al<span style="color:var(--mustard)">Toque</span></h2>
+        <ul>
+            <li><a href="home.html">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="usuarios.html" class="active">Usuarios</a></li>
+            <li><a href="../index.html">Volver al sitio</a></li>
+        </ul>
+    </aside>
+
+    <main class="admin-content">
+        <h1>Nuevo Usuario</h1>
+
+        <form id="form-usuario" class="form-box" novalidate>
+            <div class="form-group">
+                <label for="run">RUN (sin puntos ni guión, ej: 19011022K)</label>
+                <input type="text" id="run" maxlength="9" required>
+                <span class="error-message">RUN inválido (7 a 9 caracteres).</span>
+            </div>
+
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" maxlength="50" required>
+                <span class="error-message">El nombre es obligatorio (máx. 50 caracteres).</span>
+            </div>
+
+            <div class="form-group">
+                <label for="apellidos">Apellidos</label>
+                <input type="text" id="apellidos" maxlength="100" required>
+                <span class="error-message">Los apellidos son obligatorios (máx. 100 caracteres).</span>
+            </div>
+
+            <div class="form-group">
+                <label for="correo">Correo</label>
+                <input type="email" id="correo" maxlength="100" required>
+                <span class="error-message">Solo se aceptan correos @duoc.cl, @profesor.duoc.cl o @gmail.com.</span>
+            </div>
+
+            <div class="form-group">
+                <label for="fechaNacimiento">Fecha de nacimiento (opcional)</label>
+                <input type="date" id="fechaNacimiento">
+            </div>
+
+            <div class="form-group">
+                <label for="tipoUsuario">Tipo de usuario</label>
+                <select id="tipoUsuario" required>
+                    <option value="">-- Seleccione --</option>
+                    <option value="Administrador">Administrador</option>
+                    <option value="Vendedor">Vendedor</option>
+                    <option value="Cliente">Cliente</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="region">Región</label>
+                <select id="region" required>
+                    <option value="">-- Seleccione la región --</option>
+                    <option value="Región Metropolitana de Santiago">Región Metropolitana de Santiago</option>
+                    <option value="Región de la Araucanía">Región de la Araucanía</option>
+                    <option value="Región de Ñuble">Región de Ñuble</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="comuna">Comuna</label>
+                <select id="comuna" required>
+                    <option value="">-- Seleccione la comuna --</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="direccion">Dirección</label>
+                <input type="text" id="direccion" maxlength="300" required>
+                <span class="error-message">La dirección es obligatoria (máx. 300 caracteres).</span>
+            </div>
+
+            <div class="form-group">
+                <label for="contrasena">Contraseña</label>
+                <input type="password" id="contrasena" minlength="4" maxlength="10" required>
+                <span class="error-message">Entre 4 y 10 caracteres.</span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Registrar</button>
+        </form>
+    </main>
+</div>
+
+<script src="../js/admin.js"></script>
+<script>
+    const comunasPorRegion = {
+        "Región Metropolitana de Santiago": ["Santiago", "Puente Alto", "Maipú"],
+        "Región de la Araucanía": ["Temuco", "Villarrica"],
+        "Región de Ñuble": ["Chillán", "San Carlos"],
+    };
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const sesion = protegerRutaAdmin();
+        if (!sesion || !esAdministrador(sesion)) {
+            alert("Solo un Administrador puede crear usuarios.");
+            window.location.href = "usuarios.html";
+            return;
+        }
+
+        const selectRegion = document.getElementById("region");
+        const selectComuna = document.getElementById("comuna");
+
+        selectRegion.addEventListener("change", () => {
+            const comunas = comunasPorRegion[selectRegion.value] || [];
+            selectComuna.innerHTML = '<option value="">-- Seleccione la comuna --</option>';
+            comunas.forEach((comuna) => {
+                const opcion = document.createElement("option");
+                opcion.value = comuna;
+                opcion.textContent = comuna;
+                selectComuna.appendChild(opcion);
+            });
+        });
+
+        document.getElementById("form-usuario").addEventListener("submit", (evento) => {
+            evento.preventDefault();
+            const run = document.getElementById("run").value.trim();
+            const nombre = document.getElementById("nombre").value.trim();
+            const apellidos = document.getElementById("apellidos").value.trim();
+            const correo = document.getElementById("correo").value.trim();
+            const direccion = document.getElementById("direccion").value.trim();
+            const contrasena = document.getElementById("contrasena").value;
+            const correoValido = /^[^\s@]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/.test(correo);
+
+            let esValido = true;
+            if (run.length < 7 || run.length > 9) esValido = false;
+            if (!nombre || nombre.length > 50) esValido = false;
+            if (!apellidos || apellidos.length > 100) esValido = false;
+            if (!correoValido || correo.length > 100) esValido = false;
+            if (!direccion || direccion.length > 300) esValido = false;
+            if (contrasena.length < 4 || contrasena.length > 10) esValido = false;
+
+            if (!esValido) {
+                alert("Revisa los campos marcados: hay datos inválidos o incompletos.");
+                return;
+            }
+
+            crearUsuarioDesdeAdmin({
+                run,
+                nombre,
+                apellidos,
+                correo,
+                fechaNacimiento: document.getElementById("fechaNacimiento").value,
+                tipoUsuario: document.getElementById("tipoUsuario").value,
+                region: selectRegion.value,
+                comuna: selectComuna.value,
+                direccion,
+                contrasena,
+            });
+
+            alert("Usuario registrado con éxito.");
+            window.location.href = "usuarios.html";
+        });
+    });
+</script>
+</body>
+</html>
