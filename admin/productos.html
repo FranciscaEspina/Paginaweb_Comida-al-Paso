@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos | Administrador</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+<div class="admin-layout">
+    <aside class="admin-sidebar">
+        <h2>Al<span style="color:var(--mustard)">Toque</span></h2>
+        <ul>
+            <li><a href="home.html">Inicio</a></li>
+            <li><a href="productos.html" class="active">Productos</a></li>
+            <li><a href="usuarios.html">Usuarios</a></li>
+            <li><a href="../index.html">Volver al sitio</a></li>
+        </ul>
+    </aside>
+
+    <main class="admin-content">
+        <h1>Productos</h1>
+
+        <p><a href="producto-form.html" class="btn btn-primary" id="link-nuevo-producto">+ Nuevo producto</a></p>
+
+        <table class="admin-table">
+            <thead>
+            <tr>
+                <th>Imagen</th>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Categoría</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody id="tabla-productos-body"></tbody>
+        </table>
+    </main>
+</div>
+
+<script src="../js/productos.js"></script>
+<script src="../js/admin.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const sesion = protegerRutaAdmin();
+        if (!sesion) return;
+
+        renderTablaProductosAdmin();
+
+        if (!esAdministrador(sesion)) {
+            document.getElementById("link-nuevo-producto").style.display = "none";
+            document.querySelectorAll(".btn-editar-producto, .btn-eliminar-producto")
+                .forEach((btn) => (btn.style.display = "none"));
+        }
+    });
+</script>
+</body>
+</html>
